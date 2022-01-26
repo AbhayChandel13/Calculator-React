@@ -31,6 +31,10 @@ function Calculator() {
     setNextValue(nextValue === "0" ? String(number) : nextValue + number);
   };
 
+  const back =()=> {
+    setNextValue(parseFloat(nextValue-1));
+}
+
   const insertDot = () => {
     if (!/\./.test(nextValue)) {
       setNextValue(nextValue + ".");
@@ -71,6 +75,8 @@ function Calculator() {
       changeSign();
     } else if (value === ".") {
       insertDot();
+    }else if (value === "X") {
+      back();
     } else if (value === "%") {
       percentage();
     }
@@ -104,9 +110,15 @@ function Calculator() {
           <CalculatorKey keyValue={3} onClick={handleOperation} />
           <CalculatorKey keyValue={2} onClick={handleOperation} />
           <CalculatorKey keyValue={1} onClick={handleOperation} />
+        
           <CalculatorKey
             className="key-dot"
             keyValue={"."}
+            onClick={handleOperation}
+          />
+          <CalculatorKey
+            className="key-back"
+            keyValue={"X"}
             onClick={handleOperation}
           />
           <CalculatorKey
@@ -114,6 +126,7 @@ function Calculator() {
             keyValue={0}
             onClick={handleOperation}
           />
+         
         </div>
       </div>
     </div>
