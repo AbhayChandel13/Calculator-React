@@ -32,7 +32,7 @@ function Calculator() {
   };
 
   const back =()=> {
-    setNextValue(parseFloat(nextValue-1));
+    setNextValue(nextValue-1);
 }
 
   const insertDot = () => {
